@@ -1,0 +1,98 @@
+/* ==========================================================================
+   DE'OT - ESTILIZAÇÃO DO PROTÓTIPO 2.2
+   ========================================================================== */
+
+/* 29.1 — WALLPAPER: Ondas Curvas Pontilhadas Tecnológicas Realistas */
+body {
+    background-color: #020205;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+        radial-gradient(rgba(255, 255, 255, 0.3) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px, 14px 14px;
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Máscara de sobreposição para criar o sombreamento curvo de fundo */
+.wave-mask {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(140deg, transparent 40%, rgba(0,0,0,0.85) 80%),
+                radial-gradient(ellipse at 50% 130%, transparent 35%, #020205 90%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 29.3 — BOTÕES: Formato, Arredondamento, Borda Luminosa e Brilho Futurista */
+.btn-deot-glow {
+    background: linear-gradient(145deg, #090e1a 0%, #020408 100%);
+    border: 2px solid var(--glow-color, #3b82f6);
+    box-shadow: 0 0 14px var(--glow-shadow, rgba(59, 130, 246, 0.35)), 
+                inset 0 0 10px var(--glow-shadow, rgba(59, 130, 246, 0.15));
+    border-radius: 1.5rem;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Reflexo de luz na metade superior interna do botão (Efeito Glass/Gloss) */
+.btn-deot-glow::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 45%;
+    background: linear-gradient(rgba(255,255,255,0.06), transparent);
+    pointer-events: none; 
+    border-radius: 1.3rem 1.3rem 0 0;
+}
+
+/* Animação suave ao tocar ou clicar nos botões */
+.btn-deot-glow:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 22px var(--glow-color, #3b82f6), inset 0 0 15px var(--glow-color, #3b82f6);
+}
+
+/* Títulos com ícone e sublinhado colorido ("Estilo Mapas Mentais") */
+.title-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -5px; left: 0; 
+    width: 100%; height: 3px;
+    background: var(--underline-color, #3b82f6);
+    box-shadow: 0 0 8px var(--underline-color, #3b82f6);
+    border-radius: 2px;
+}
+
+/* Animação de pulsação e brilho para a lâmpada/chama da Mind Flame */
+@keyframes flamePulse {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: drop-shadow(0 0 4px var(--flame-color)); 
+    }
+    50% { 
+        transform: scale(1.12); 
+        filter: drop-shadow(0 0 15px var(--flame-color)); 
+    }
+}
+
+.flame-active { 
+    animation: flamePulse 1.8s infinite ease-in-out; 
+}
+
+/* Controle de visibilidade das telas */
+.screen { 
+    display: none; 
+}
+
+.screen.active { 
+    display: flex; 
+}
