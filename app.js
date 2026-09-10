@@ -71,21 +71,20 @@ function handleLogin() {
 function navigateTo(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     
-    const targetScreen = document.getElementById(id);
-    if (targetScreen) {
-        targetScreen.classList.add('active');
+    function navigateTo(id) {
+    if (id !== appHistory[appHistory.length - 1]) appHistory.push(id);
+    
+    const btn = document.getElementById('btn-back');
+    if (btn) { // Só mexe no botão se ele realmente existir na página
+        if (id === 'screen-home' || id === 'screen-login') {
+            btn.classList.add('opacity-0', 'pointer-events-none');
+            if (id === 'screen-home') appHistory = ['screen-home'];
+        } else {
+            btn.classList.remove('opacity-0', 'pointer-events-none');
+        }
     }
     
-    if (id !== appHistory[appHistory.length - 1]) appHistory.push(id);
-
-    const btn = document.getElementById('btn-back');
-    if (id === 'screen-home' || id === 'screen-login') {
-        btn.classList.add('opacity-0', 'pointer-events-none');
-        if (id === 'screen-home') appHistory = ['screen-home'];
-    } else {
-        btn.classList.remove('opacity-0', 'pointer-events-none');
-    }
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 }
 
 function goBack() {
