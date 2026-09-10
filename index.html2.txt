@@ -1,0 +1,18 @@
+    <!-- Substitua as chamadas do view-part4 antigo por estas no index.html -->
+    <script src="view-part1-auth.js"></script>
+    <script src="view-part2-home.js"></script>
+    <script src="view-part3-study.js"></script>
+    <script src="view-part4a-quiz-run.js"></script>
+    <script src="view-part4b-quiz-res.js"></script>
+    <script src="view-part4c-social.js"></script>
+    
+    <script src="database.js"></script>
+    <script src="app.js"></script>
+    <script src="quiz.js"></script>
+    <script src="admin.js"></script>
+    
+    <script>
+        // Atualize também o injetor mestre na base do index.html
+        document.getElementById('deot-screens-container').innerHTML = 
+            deotPart1Auth + deotPart2Home + deotPart3Study + deotPart4aQuizRun + deotPart4bQuizRes + deotPart4cSocial;
+    </script>
