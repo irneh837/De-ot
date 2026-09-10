@@ -1,0 +1,94 @@
+/* ==========================================================================
+   DE'OT - IDENTIDADE VISUAL PREMIUM (VERSÃO HIGH FIDELITY 2.2 FINAL)
+   ========================================================================== */
+
+body {
+    background-color: #000000;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+        radial-gradient(rgba(255, 255, 255, 0.28) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 32px 32px, 16px 16px;
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.wave-mask {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(0,0,0,0.9) 85%),
+                radial-gradient(ellipse at 50% 120%, transparent 30%, #000000 85%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.btn-deot-glow {
+    background: linear-gradient(145deg, rgba(9, 14, 26, 0.85) 0%, rgba(2, 4, 8, 0.95) 100%);
+    border: 2px solid var(--glow-color, #3b82f6);
+    box-shadow: 0 0 15px var(--glow-shadow, rgba(59, 130, 246, 0.35)), 
+                inset 0 0 12px var(--glow-shadow, rgba(59, 130, 246, 0.15));
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background-image: radial-gradient(var(--glow-color, #3b82f6) 1px, transparent 1px);
+    background-size: 12px 12px;
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+.btn-deot-glow::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 42%;
+    background: linear-gradient(rgba(255, 255, 255, 0.08), transparent);
+    pointer-events: none; border-radius: 1.3rem 1.3rem 0 0;
+}
+
+.btn-deot-glow:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 25px var(--glow-color, #3b82f6), inset 0 0 18px var(--glow-color, #3b82f6);
+}
+
+.title-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline::after {
+    content: ''; position: absolute; bottom: -6px; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--underline-color, #3b82f6), #10b981);
+    box-shadow: 0 0 10px var(--underline-color, #3b82f6);
+    border-radius: 2px;
+}
+
+/* MOLDURA E ONDAS DE PONTOS DINÂMICAS DO QUIZ E UPLOAD (IMAGENS 6 e 7) */
+.quiz-card-premium, .upload-card-premium {
+    background: linear-gradient(145deg, rgba(5, 8, 16, 0.9) 0%, rgba(1, 2, 4, 0.98) 100%);
+    backdrop-filter: blur(12px);
+    border: 2px solid #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-card-premium::after, .upload-card-premium::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; top: 0;
+    background-image: 
+        radial-gradient(circle at 7% 93%, var(--card-glow-color, #3b82f6) 0%, transparent 28%),
+        radial-gradient(circle at 93% 93%, var(--card-glow-color, #3b82f6) 0%, transparent 28%),
+        radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+    background-size: 100% 100%, 100% 100%, 14px 14px;
+    background-repeat: no-repeat, no-repeat, repeat;
+    opacity: 0.38; pointer-events: none; border-radius: 1.5rem; z-index: 1;
+}
+
+@keyframes flamePulse {
+    0%, 100’% { transform: scale(1); filter: drop-shadow(0 0 5px #f97316); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 18px #fbbf24); }
+}
+
+.flame-active { animation: flamePulse 1.5s infinite ease-in-out; }
+.screen { display: none; }
+.screen.active { display: flex; }
