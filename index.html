@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De'ot - Plataforma de Estudos Gamificada</title>
+    <!-- Tailwind CSS -->
+    <script src="https://tailwindcss.com"></script>
+    <!-- Arquivo de Estilos Customizados -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 pb-24 select-none">
+    <div class="wave-mask"></div>
+
+    <!-- CABEÇALHO PADRÃO DO DE'OT -->
+    <header id="main-header" class="w-full max-w-md mx-auto hidden flex-col gap-2 relative z-50 pt-2">
+        <div class="flex items-center justify-between w-full h-12 relative">
+            <button id="btn-back" class="text-gray-400 hover:text-white flex items-center gap-1 text-sm font-bold opacity-0 pointer-events-none transition-opacity duration-200" onclick="goBack()">
+                ❮ Voltar
+            </button>
+            
+            <h1 class="text-3xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 absolute left-1/2 -translate-x-1/2 -top-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+                DE'OT
+            </h1>
+
+            <div class="flex items-center gap-2 bg-black/60 border border-gray-800 px-3 py-1 rounded-full backdrop-blur-md">
+                <div id="flame-container" class="text-xl transition-all duration-300">💡</div>
+                <div class="text-right leading-none">
+                    <div class="text-xs font-black text-gray-200"><span id="header-days">0</span> dias</div>
+                    <div class="text-[9px] font-mono text-gray-400"><span id="header-pts">0</span>/100 pts</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full bg-gray-950 border border-gray-800 h-2 rounded-full overflow-hidden p-[1px]">
+            <div id="header-progress-bar" class="h-full w-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-500"></div>
+        </div>
+    </header>
+
+    <!-- NÚCLEO CENTRAL DE INJEÇÃO DAS TELAS MODULARES -->
+    <main id="deot-screens-container" class="w-full max-w-md mx-auto flex-1 flex flex-col justify-center my-4 relative z-40">
+        <!-- As 4 partes de visualizações serão carregadas dinamicamente aqui -->
+    </main>
+
+    <!-- NAVEGAÇÃO INFERIOR GLOBAL FIXA -->
+    <nav id="main-nav" class="fixed bottom-0 left-0 right-0 bg-black/95 border-t border-gray-950 py-3 px-6 z-50 hidden backdrop-blur-md">
+        <div class="max-w-md mx-auto flex justify-between items-center text-[11px] font-medium">
+            <button class="flex flex-col items-center gap-0.5 text-gray-500 hover:text-white" onclick="navigateTo('screen-ranking')"><span>🏆</span><span>Ranking</span></button>
+            <button class="flex flex-col items-center gap-0.5 text-cyan-400 font-bold" onclick="navigateTo('screen-home')"><span>🏠</span><span>Início</span></button>
+            <button class="flex flex-col items-center gap-0.5 text-gray-500 hover:text-white" onclick="navigateTo('screen-duvidas')"><span>💬</span><span>Dúvidas</span></button>
+            <button class="flex flex-col items-center gap-0.5 text-gray-500 hover:text-white" onclick="navigateTo('screen-perfil')"><span>👤</span><span>Perfil</span></button>
+        </div>
+    </nav>
+
+    <!-- CARREGAMENTO DO ECOSSISTEMA COMPLETO SCRIPT DE'OT -->
+    <script src="database.js"></script>
+    
+    <!-- Chamada das 4 Partes de Visualizações Divisórias -->
+    <script src="view-part1-auth.js"></script>
+    <script src="view-part2-home.js"></script>
+    <script src="view-part3-study.js"></script>
+    <script src="view-part4-quiz.js"></script>
+    
+    <script src="app.js"></script>
+    <script src="quiz.js"></script>
+    <script src="admin.js"></script>
+    
+    <script>
+        // Injetor Mestre: une as 4 visualizações dentro do container central de telas
+        document.getElementById('deot-screens-container').innerHTML = 
+            deotPart1Auth + deotPart2Home + deotPart3Study + deotPart4Quiz;
+    </script>
+</body>
+</html>
