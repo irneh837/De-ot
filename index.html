@@ -1,4 +1,17 @@
-    <!-- Substitua as chamadas do view-part4 antigo por estas no index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE'OT - Plataforma de Estudos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- O container que estava faltando para o site aparecer: -->
+    <div id="deot-screens-container"></div>
+
+    <!-- Chamadas organizadas de todos os seus arquivos: -->
     <script src="view-part1-auth.js"></script>
     <script src="view-part2-home.js"></script>
     <script src="view-part3-study.js"></script>
@@ -10,9 +23,11 @@
     <script src="app.js"></script>
     <script src="quiz.js"></script>
     <script src="admin.js"></script>
-    
+
     <script>
-        // Atualize também o injetor mestre na base do index.html
+        // Injetor que junta as partes novas e coloca dentro do container acima
         document.getElementById('deot-screens-container').innerHTML = 
             deotPart1Auth + deotPart2Home + deotPart3Study + deotPart4aQuizRun + deotPart4bQuizRes + deotPart4cSocial;
     </script>
+</body>
+</html>
