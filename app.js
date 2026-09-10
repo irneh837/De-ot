@@ -60,9 +60,9 @@ function refreshEngineVisuals() {
 // 21. LOGIN DO USUÁRIO
 function handleLogin() {
     dbState.isLoggedIn = true;
-    document.getElementById('main-header').classList.remove('hidden');
-    document.getElementById('main-header').classList.add('flex');
-    document.getElementById('main-nav').classList.remove('hidden');
+    //document.getElementById('main-header').classList.remove('hidden');
+    //document.getElementById('main-header').classList.add('flex');
+    //document.getElementById('main-nav').classList.remove('hidden');
     navigateTo('screen-home');
     refreshEngineVisuals();
 }
